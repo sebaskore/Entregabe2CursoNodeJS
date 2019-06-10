@@ -124,11 +124,17 @@ app.post('/crearcurso',(req, res)=> {
 
  app.get('/listarmatriculados',(req,res)=> {
     listarCursosXAspirante();
-    let lista = listaAspiranteXCurso;
+    listarCursos();
+    let texto="";
+   
     
+    listaCursos.forEach(curso =>{
 
-    let texto=
-    `<table>
+    let lista = listaAspiranteXCurso.filter(aspirante => aspirante.idcurso== curso.id);
+    texto= texto+
+
+    `Curso: ${curso.nombre}
+    <table>
         <thead>
             <th>idCurso</th>
             <th>documento</th>
@@ -159,6 +165,7 @@ app.post('/crearcurso',(req, res)=> {
     `</tbody>
     </table>
     `;
+})
 
     res.render('listarmatriculados',{// aqui van los paramentros que le vamos a enviar a la pagina por hbs
         listar:texto
@@ -166,6 +173,19 @@ app.post('/crearcurso',(req, res)=> {
 
  })
 
+ app.post('/listarmatriculados',(req, res)=> {
+    let duplicado = inactivarCurso(req.body.idCurso);
+    console.log(duplicado);
+    if(duplicado=="OK"){
+        res.render("index")
+    }
+    else{
+    console.log(duplicado);
+    res.render('matriculaCurso',{// aqui van los paramentros que le vamos a enviar a la pagina por hbs
+        mensaje:duplicado
+    });
+    }
+ });
 
 
 
@@ -198,6 +218,21 @@ const listarCursos =()=>{
     listaCursos=[];
    }
 }
+
+const inactivarCurso=(idCurso)=>{
+    listarCursos();
+    for(let i = 0; i< listaCursos.length;i++){
+        if(listaCursos[i].id==idCurso){
+            listaCursos[i].estado=0;
+            guardarCursos();
+            return "OK"
+            
+    
+        }
+
+    }
+    return "no se encontro ID"
+};
 
 const crearCurso = (curso)=>{
     listarCursos();
