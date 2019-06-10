@@ -133,10 +133,10 @@ app.post('/crearcurso',(req, res)=> {
     let lista = listaAspiranteXCurso.filter(aspirante => aspirante.idcurso== curso.id);
     texto= texto+
 
-    `Curso: ${curso.nombre}
+    `Curso: ${curso.nombre} id: ${curso.id} estado: ${curso.estado}
     <table>
         <thead>
-            <th>idCurso</th>
+           
             <th>documento</th>
             <th>nombre</th>
             <th>correo</th>
@@ -150,7 +150,7 @@ app.post('/crearcurso',(req, res)=> {
         texto=texto+
         `
             <tr>
-                <td>${registro.idcurso}</td>
+                
                 <td>${registro.documento}</td>
                 <td>${registro.nombre}</td>
                 <td>${registro.correo}</td>
@@ -187,7 +187,25 @@ app.post('/crearcurso',(req, res)=> {
     }
  });
 
+ app.post('/borrarmatriculados',(req, res)=> {
+    let duplicado = borrarMatriculados(req.body.documento,req.body.idCurso);
+    console.log(duplicado);
+    if(duplicado=="OK"){
+        res.render("index")
+    }
+    else{
+    console.log(duplicado);
+    res.render('borrarmatriculados',{// aqui van los paramentros que le vamos a enviar a la pagina por hbs
+        mensaje:duplicado
+    });
+    }
+ });
+ app.get('/borrarmatriculados',(req,res)=> {
+    res.render('borrarmatriculados',{// aqui van los paramentros que le vamos a enviar a la pagina por hbs
+        mensaje:''
+    });
 
+ })
 
 
 app.get('*',(req, res)=>{
@@ -309,3 +327,11 @@ const guardarCursosXAspirante= () =>{
     })
 }
 
+const borrarMatriculados = (documento,idCurso)=>{
+    listarCursosXAspirante();
+    let lista= listaAspiranteXCurso.filter(aspirante => aspirante.idcurso!=idCurso && aspirante.documento!=documento);
+
+    listaAspiranteXCurso=lista;
+    guardarCursosXAspirante();
+    return "OK";
+}

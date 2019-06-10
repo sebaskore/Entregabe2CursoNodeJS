@@ -1,0 +1,16 @@
+{{>header}}
+            <p>
+                Bienvenido a la pagina Inicio.
+            </p>
+            <form action="/borrarmatriculados" method="post">
+            {{!-- metodo post enviamos por url los parametros este tiene que considir con el app . get o post de la pagina --}}
+            {{!-- si lo enviamos por get los datos pasan por url y se usan por el req.query si es por post se instala body parser  --}}
+                documento: <input type="text" name="documento" required>
+                idCurso: <input type="number" name="idCurso" required>
+                <button>Eliminar</button>
+            </form>
+
+
+        {{{listar}}} 
+        {{!-- para que reconosca html se ponen tres corchetes --}}
+{{>footer}}
