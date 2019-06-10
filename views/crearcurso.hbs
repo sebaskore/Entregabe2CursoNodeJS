@@ -1,0 +1,19 @@
+{{>header}}
+            <p>
+                Creacion de cursos
+            </p>
+            <form action="/guardarCurso" method="post">
+            {{!-- metodo post enviamos por url los parametros este tiene que considir con el app . get o post de la pagina --}}
+            {{!-- si lo enviamos por get los datos pasan por url y se usan por el req.query si es por post se instala body parser  --}}
+                Nombre: <input type="text" name="nombre" required >
+                Id: <input type="number" name="id" required > 
+                descripcion: <input type="text" name="descripcion" required>
+                valor: <input type="number" name="valor" required>
+                Modalidad: <input type="text" name="modalidad">
+                intensidad horaria: <input type="number" name="intensidadHoraria">
+                <button>Guardar</button>
+            </form>
+
+
+    
+{{>footer}}

@@ -1,0 +1,18 @@
+[
+    {
+        "nombre": "programacion OO",
+        "id": 1,
+        "descripcion": "curso de programacion",
+        "valor": 50000,
+        "modalidad": "",
+        "intensidadHoraria": ""
+    },
+    {
+        "nombre": "matematicas",
+        "id": 2,
+        "descripcion": "asdasd",
+        "valor": 150000,
+        "modalidad": "",
+        "intensidadHoraria": ""
+    }
+]
