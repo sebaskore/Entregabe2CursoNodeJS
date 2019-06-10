@@ -5,7 +5,8 @@
         "descripcion": "curso de programacion",
         "valor": 50000,
         "modalidad": "",
-        "intensidadHoraria": ""
+        "intensidadHoraria": "",
+        "estado": 1
     },
     {
         "nombre": "matematicas",
@@ -13,6 +14,16 @@
         "descripcion": "asdasd",
         "valor": 150000,
         "modalidad": "",
-        "intensidadHoraria": ""
+        "intensidadHoraria": "",
+        "estado": 1
+    },
+    {
+        "nombre": "Programacion 1",
+        "id": 6,
+        "descripcion": "sebastaoasdas",
+        "valor": 141235,
+        "modalidad": "",
+        "intensidadHoraria": "",
+        "estado": 1
     }
 ]

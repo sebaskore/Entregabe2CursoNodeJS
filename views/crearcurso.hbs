@@ -2,7 +2,7 @@
             <p>
                 Creacion de cursos
             </p>
-            <form action="/guardarCurso" method="post">
+            <form action="/crearcurso" method="post">
             {{!-- metodo post enviamos por url los parametros este tiene que considir con el app . get o post de la pagina --}}
             {{!-- si lo enviamos por get los datos pasan por url y se usan por el req.query si es por post se instala body parser  --}}
                 Nombre: <input type="text" name="nombre" required >
@@ -14,6 +14,6 @@
                 <button>Guardar</button>
             </form>
 
-
+            <h1>{{mensaje}}</h1>
     
 {{>footer}}

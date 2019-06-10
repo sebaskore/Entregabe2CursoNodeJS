@@ -2,15 +2,23 @@
             <p>
                 Bienvenido a la pagina Inicio.
             </p>
-            <form action="/crearcurso" method="post">
-            {{!-- metodo post enviamos por url los parametros este tiene que considir con el app . get o post de la pagina --}}
-            {{!-- si lo enviamos por get los datos pasan por url y se usan por el req.query si es por post se instala body parser  --}}
-                {{!-- <input type="text" name="nombre">
-                <input type="number" name="nota1">
-                <input type="number" name="nota2">
-                <input type="number" name="nota3"> --}}
+            <form action="/crearcurso" method="get">
+           
                 <button>Crear curso</button>
             </form>
+            <form action="/listarcursos" method="get">
+           
+                <button>listar cursos</button>
+            </form>
+            <form action="/matriculaCurso" method="get">
+           
+                <button>matricula curso</button>
+            </form>
+            <form action="/listarmatriculados" method="get">
+           
+                <button>lista matricula curso</button>
+            </form>
+
 
 
         

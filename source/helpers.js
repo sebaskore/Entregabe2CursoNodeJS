@@ -5,7 +5,7 @@ hbs.registerHelper('obtenerPromedio',(nota1, nota2, nota3)=>{
 
 })
 
-hbs.registerHelper('listar',()=>{
+hbs.registerHelper('listar_old',()=>{
     listaEstudiante=require('./listado.json');
 
 
